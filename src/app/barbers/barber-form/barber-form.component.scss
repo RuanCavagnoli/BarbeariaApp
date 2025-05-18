@@ -1,0 +1,22 @@
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --background: transparent;
+
+  &::part(native) {
+    padding: 0;
+  }
+
+  ion-label {
+    margin-bottom: 8px;
+    color: var(--ion-color-medium);
+  }
+}
+
+ion-textarea {
+  min-height: 100px;
+}
+
+.ion-padding {
+  margin-top: 16px;
+} 

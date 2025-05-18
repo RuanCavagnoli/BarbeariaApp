@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Jogos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="gameForm">
+    <ion-list>
+      <ion-item>
+        <ion-input formControlName="title" labelPlacement="floating" label="Nome: " type="text"></ion-input>
+        <p>
+        @if(hasError('title', 'required')) {
+          O campo é obrigatório
+        }
+        @if(hasError('title', 'minlength')) {
+          O campo deve ter no mínimo 3 caracteres
+        }
+        @if(hasError('title', 'maxlength')) {
+          O campo deve ter no máximo 150 caracteres
+        }
+        </p>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="image" labelPlacement="floating" label="Logo (URL)" type="url"></ion-input>
+        <p>
+        @if(hasError('image', 'required')) {
+          O campo é obrigatório
+        }
+        @if(hasError('image', 'invalidUrl')) {
+          O campo de logo deve ser uma URL válida
+        }
+        </p>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="launchDate" labelPlacement="floating" label="Lançamento" [maskito]="dateMask"
+          [maskitoElement]="maskitoElement" />
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="price" labelPlacement="floating" label="Preço" type="text" [maskito]="priceMask"
+          [maskitoElement]="maskitoElement" />
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="category" labelPlacement="floating" label="Categoria" type="text" />
+      </ion-item>
+      <ion-item>
+        <ion-select formControlName="platforms" [compareWith]="compareWith" label="Plataformas" label-placement="floating" multiple="true">
+          @for(platform of platforms; track platform) {
+            <ion-select-option [value]="platform">{{platform.name}}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [disabled]="gameForm.invalid" (click)="save()">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+
+</ion-content>

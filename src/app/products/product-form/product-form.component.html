@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ product ? 'Editar' : 'Novo' }} Produto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Descrição</ion-label>
+        <ion-textarea formControlName="description" rows="3"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Preço</ion-label>
+        <ion-input formControlName="price" type="number" min="0" step="0.01"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Categoria</ion-label>
+        <ion-input formControlName="category" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Estoque</ion-label>
+        <ion-input formControlName="stock" type="number" min="0"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">URL da Imagem</ion-label>
+        <ion-input formControlName="image" type="url"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" [disabled]="!form.valid">
+        Salvar
+      </ion-button>
+    </div>
+  </form>
+</ion-content> 

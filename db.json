@@ -1,0 +1,223 @@
+{
+  "games": [
+    {
+      "id": "2",
+      "title": "Tetris",
+      "category": "plataforma",
+      "image": "https://m.media-amazon.com/images/I/61M3rDwh4qL._h1_.png",
+      "launchDate": "1986-08-13T00:00:00.000Z",
+      "platforms": [],
+      "price": 1
+    },
+    {
+      "id": "3",
+      "title": "Tetris",
+      "category": "plataforma",
+      "image": null,
+      "launchDate": "1986-08-13T00:00:00.000Z",
+      "platforms": [],
+      "price": 1
+    },
+    {
+      "id": "4",
+      "title": "Tetris",
+      "category": "plataforma",
+      "image": null,
+      "launchDate": "1986-08-13T00:00:00.000Z",
+      "platforms": [],
+      "price": 1
+    },
+    {
+      "id": "5",
+      "title": "Tetris",
+      "category": "plataforma",
+      "image": null,
+      "launchDate": "1986-08-13T00:00:00.000Z",
+      "platforms": [],
+      "price": 1
+    },
+    {
+      "title": "Super Mario 2",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnWkg0kaGR2SE4gTyWdSvkc6LX7vw7Gmg6TEHohnQ3zimuPscntOs0uQ&s",
+      "launchDate": "0430-01-20T03:00:00.000Z",
+      "price": "200,00",
+      "category": "2D, Arcade",
+      "platforms": [
+        {
+          "id": "4c22",
+          "name": "Playstation 5",
+          "manufacture": "Sony"
+        },
+        {
+          "id": "059d",
+          "name": "Xbox",
+          "manufacture": "Microsoft"
+        },
+        {
+          "id": "a09e",
+          "name": "PC"
+        }
+      ],
+      "id": "204e"
+    },
+    {
+      "title": "Super Mario 3",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnWkg0kaGR2SE4gTyWdSvkc6LX7vw7Gmg6TEHohnQ3zimuPscntOs0uQ&s",
+      "launchDate": "0404-01-08T03:00:00.000Z",
+      "price": 99.99,
+      "category": "2D",
+      "platforms": [
+        {
+          "id": "99ed",
+          "name": "Super Nintendo",
+          "manufacture": "Nintendo"
+        },
+        {
+          "id": "a09e",
+          "name": "PC"
+        }
+      ],
+      "id": "9578"
+    },
+    {
+      "title": "Chess",
+      "image": "http://",
+      "launchDate": "2001-01-01T03:00:00.000Z",
+      "price": 111,
+      "category": "Tabuleiro",
+      "platforms": [
+        {
+          "id": "a09e",
+          "name": "PC"
+        }
+      ],
+      "id": "ad25"
+    },
+    {
+      "title": "Chess 2",
+      "image": "http://",
+      "launchDate": "2025-02-02T03:00:00.000Z",
+      "price": 2.97,
+      "category": "Tabuleiro",
+      "platforms": [
+        {
+          "id": "a09e",
+          "name": "PC"
+        }
+      ],
+      "id": "ef7c"
+    },
+    {
+      "title": "Chess 3",
+      "image": "http:///",
+      "launchDate": "2021-10-10T03:00:00.000Z",
+      "price": 20.12,
+      "category": "Tabuleiro",
+      "platforms": [
+        {
+          "id": "a09e",
+          "name": "PC"
+        }
+      ],
+      "id": "c754"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "4c22",
+      "name": "Playstation 5",
+      "manufacture": "Sony"
+    },
+    {
+      "id": "059d",
+      "name": "Xbox",
+      "manufacture": "Microsoft"
+    },
+    {
+      "id": "99ea",
+      "name": "Nintendo Switch",
+      "manufacture": "Nintendo"
+    },
+    {
+      "id": "99ed",
+      "name": "Super Nintendo",
+      "manufacture": "Nintendo"
+    },
+    {
+      "id": "a09e",
+      "name": "PC"
+    }
+  ],
+  "products": [
+    {
+      "id": "2",
+      "name": "Mouse Gamer RGB",
+      "description": "Mouse gamer com iluminação RGB e 6 botões programáveis",
+      "price": 199.99,
+      "category": "Periféricos",
+      "stock": 50,
+      "image": "https://example.com/mouse-gamer.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Headset Gamer",
+      "description": "Headset gamer com microfone e som surround 7.1",
+      "price": 299.99,
+      "category": "Periféricos",
+      "stock": 30,
+      "image": "https://example.com/headset-gamer.jpg"
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "name": "Corte Masculino",
+      "description": "Corte moderno ou clássico com acabamento perfeito",
+      "price": 45,
+      "duration": 30,
+      "category": "corte",
+      "available": true,
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+    },
+    {
+      "id": "2",
+      "name": "Barba Completa",
+      "description": "Aparação, modelagem e hidratação da barba",
+      "price": 35,
+      "duration": 30,
+      "category": "barba",
+      "available": true,
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+    },
+    {
+      "id": "3",
+      "name": "Design de Sobrancelha",
+      "description": "Modelagem e alinhamento perfeito das sobrancelhas",
+      "price": 25,
+      "duration": 20,
+      "category": "sobrancelha",
+      "available": true,
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+    },
+    {
+      "id": "4",
+      "name": "Pigmentação Capilar",
+      "description": "Disfarce de falhas e uniformização da cor",
+      "price": 80,
+      "duration": 60,
+      "category": "pigmentacao",
+      "available": true,
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+    },
+    {
+      "id": "5",
+      "name": "Hidratação Capilar",
+      "description": "Tratamento profundo para cabelos danificados",
+      "price": 50,
+      "duration": 45,
+      "category": "tratamento",
+      "available": true,
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+    }
+  ]
+}
