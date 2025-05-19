@@ -72,6 +72,7 @@
 
   h2 {
     margin: 0;
+    margin-right: 120px;
     font-size: 18px;
     font-weight: 600;
     color: white;
@@ -89,7 +90,15 @@
   right: 16px;
   top: 16px;
   display: flex;
-  gap: 4px;
+  gap: 8px;
+  align-items: center;
+
+  .status-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    margin-right: 4px;
+  }
 
   ion-button {
     --padding-start: 4px;

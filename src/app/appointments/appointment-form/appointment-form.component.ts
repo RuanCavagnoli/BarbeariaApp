@@ -107,16 +107,23 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   generateAvailableTimes() {
-    const startHour = 9; // 9:00 AM
-    const endHour = 18; // 6:00 PM
-    const interval = 30; // 30 minutes
+    this.availableTimes = this.generateTimeSlots();
+  }
+
+  generateTimeSlots(): string[] {
+    const timeSlots: string[] = [];
+    const startHour = 9;
+    const endHour = 18;
+    const interval = 30;
 
     for (let hour = startHour; hour < endHour; hour++) {
       for (let minute = 0; minute < 60; minute += interval) {
         const time = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
-        this.availableTimes.push(time);
+        timeSlots.push(time);
       }
     }
+
+    return timeSlots;
   }
 
   onDateChange(event: any) {

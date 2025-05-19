@@ -9,13 +9,23 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <!-- Hero Section -->
-  <div class="hero-section">
-    <h1>Bem-vindo à Barbearia Style</h1>
-    <p>Onde estilo encontra a tradição</p>
-    <ion-button expand="block" color="light" (click)="navigateToServices()">
-      Ver Todos os Serviços
-    </ion-button>
-  </div>
+  <ion-card class="hero-card">
+    <ion-card-content>
+      <div class="hero-section">
+        <h1>Bem-vindo à Barbearia Style</h1>
+        <p>Onde estilo encontra a tradição</p>
+        <ion-button expand="block" color="light" (click)="navigateToServices()">
+          Ver Todos os Serviços
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botão de Agendamento -->
+  <ion-button expand="block" color="primary" class="ion-margin-top" (click)="navigateToAppointments()">
+    <ion-icon name="calendar-outline" slot="start"></ion-icon>
+    Agendar Horário
+  </ion-button>
 
   <!-- Featured Services -->
   <div class="services-section">
@@ -24,7 +34,7 @@
     </ion-text>
 
     <!-- Service Categories -->
-    @for (category of categories; track category.value) {
+    @for (category of categories.slice(0, 3); track category.value) {
       <div class="category-section" *ngIf="getServicesByCategory(category.value).length > 0">
         <ion-text color="medium">
           <h3 class="category-title">{{ category.label }}</h3>
@@ -32,7 +42,7 @@
 
         <ion-list lines="none">
           @for (service of getServicesByCategory(category.value); track service.id) {
-            <ion-item button detail (click)="navigateToServices()">
+            <ion-item detail="false">
               <ion-icon [name]="category.icon + '-outline'" slot="start"></ion-icon>
               <ion-label>
                 <h4>{{ service.name }}</h4>
@@ -58,13 +68,13 @@
         <ion-item>
           <ion-label>
             <h3>Segunda à Sexta</h3>
-            <p>09:00 - 20:00</p>
+            <p>09:00 - 17:30</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>
             <h3>Sábado</h3>
-            <p>09:00 - 18:00</p>
+            <p>09:00 - 17:30</p>
           </ion-label>
         </ion-item>
         <ion-item>
@@ -76,10 +86,4 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
-
-  <!-- Botão de Agendamento -->
-  <ion-button expand="block" color="primary" class="ion-margin-top" (click)="navigateToAppointments()">
-    <ion-icon name="calendar-outline" slot="start"></ion-icon>
-    Agendar Horário
-  </ion-button>
 </ion-content>

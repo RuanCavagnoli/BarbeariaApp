@@ -3,6 +3,6 @@ export interface Barber {
     name: string;
     phone: string;
     specialties: string[];
-    experience: number; // anos de experiência
+    experience: number;
     active: boolean;
 } 

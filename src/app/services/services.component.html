@@ -31,6 +31,9 @@
 
       <ion-item *ngFor="let service of services | filterByCategory:category.value" class="service-card">
         <div class="action-buttons">
+          <ion-badge [color]="service.available ? 'success' : 'danger'" class="status-badge">
+            {{ service.available ? 'Disponível' : 'Indisponível' }}
+          </ion-badge>
           <ion-button fill="clear" size="small" (click)="editService(service)">
             <ion-icon name="create-outline"></ion-icon>
           </ion-button>
@@ -40,9 +43,6 @@
         </div>
         <div class="service-header">
           <h2>{{ service.name }}</h2>
-          <ion-badge [color]="service.available ? 'success' : 'medium'">
-            {{ service.available ? 'Disponível' : 'Indisponível' }}
-          </ion-badge>
         </div>
         <div class="service-info">
           <p>

@@ -3,8 +3,8 @@ export interface Service {
     name: string;
     description: string;
     price: number;
-    duration: number; // duração em minutos
-    category?: string;
-    available?: boolean;
+    duration: number;
+    category: string;
     image?: string;
+    available: boolean;
 } 

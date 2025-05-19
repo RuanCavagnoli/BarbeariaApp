@@ -178,14 +178,14 @@
       "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
     },
     {
-      "id": "3",
       "name": "Design de Sobrancelha",
       "description": "Modelagem e alinhamento perfeito das sobrancelhas",
       "price": 25,
       "duration": 20,
       "category": "sobrancelha",
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png",
       "available": true,
-      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+      "id": "3"
     },
     {
       "name": "Pigmentação Capilar",

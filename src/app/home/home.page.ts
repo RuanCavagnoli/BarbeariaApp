@@ -63,6 +63,6 @@ export class HomePage implements OnInit {
 
   getServicesByCategory(category: string): Service[] {
     return this.services.filter(service => service.category === category)
-      .slice(0, 3); // Mostra apenas os 3 primeiros serviços de cada categoria
+      .slice(0, 1);
   }
 }

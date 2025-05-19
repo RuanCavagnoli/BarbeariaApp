@@ -36,6 +36,9 @@
     <div class="barbers-list">
       <ion-item *ngFor="let barber of barbers" class="barber-card">
         <div class="action-buttons">
+          <ion-badge [color]="barber.active ? 'success' : 'medium'" class="status-badge">
+            {{ barber.active ? 'Ativo' : 'Inativo' }}
+          </ion-badge>
           <ion-button fill="clear" size="small" (click)="openBarberForm(barber)">
             <ion-icon name="create-outline"></ion-icon>
           </ion-button>
@@ -45,9 +48,6 @@
         </div>
         <div class="barber-header">
           <h2>{{ barber.name }}</h2>
-          <ion-badge [color]="barber.active ? 'success' : 'medium'">
-            {{ barber.active ? 'Ativo' : 'Inativo' }}
-          </ion-badge>
         </div>
         <div class="barber-info">
           <p>

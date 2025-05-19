@@ -26,6 +26,9 @@
   <div *ngIf="products.length" class="products-list">
     <ion-item *ngFor="let product of products" class="product-card">
       <div class="action-buttons">
+        <ion-badge [color]="product.stock > 0 ? 'success' : 'danger'" class="status-badge">
+          {{ product.stock > 0 ? 'Em estoque' : 'Sem estoque' }}
+        </ion-badge>
         <ion-button fill="clear" size="small" (click)="editProduct(product)">
           <ion-icon name="create-outline"></ion-icon>
         </ion-button>
@@ -35,9 +38,6 @@
       </div>
       <div class="product-header">
         <h2>{{ product.name }}</h2>
-        <ion-badge [color]="product.stock > 0 ? 'success' : 'danger'">
-          {{ product.stock > 0 ? 'Em estoque' : 'Sem estoque' }}
-        </ion-badge>
       </div>
       <div class="product-info">
         <p>
