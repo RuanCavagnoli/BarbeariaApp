@@ -13,25 +13,46 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let product of products">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="product.image || 'assets/no-image.png'"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ product.name }}</h2>
-        <p>{{ product.description }}</p>
-        <p>Preço: R$ {{ product.price | number:'1.2-2' }}</p>
-        <p>Estoque: {{ product.stock }}</p>
-      </ion-label>
-      <ion-buttons slot="end">
-        <ion-button (click)="editProduct(product)">
+  <div *ngIf="!products.length" class="empty-state">
+    <ion-icon name="cube-outline" class="empty-icon"></ion-icon>
+    <h2>Nenhum produto cadastrado</h2>
+    <p>Adicione produtos para começar a gerenciar seu estoque</p>
+    <ion-button (click)="addProduct()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Adicionar Produto
+    </ion-button>
+  </div>
+
+  <div *ngIf="products.length" class="products-list">
+    <ion-item *ngFor="let product of products" class="product-card">
+      <div class="action-buttons">
+        <ion-button fill="clear" size="small" (click)="editProduct(product)">
           <ion-icon name="create-outline"></ion-icon>
         </ion-button>
-        <ion-button (click)="deleteProduct(product)" color="danger">
+        <ion-button fill="clear" size="small" color="danger" (click)="deleteProduct(product)">
           <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
-      </ion-buttons>
+      </div>
+      <div class="product-header">
+        <h2>{{ product.name }}</h2>
+        <ion-badge [color]="product.stock > 0 ? 'success' : 'danger'">
+          {{ product.stock > 0 ? 'Em estoque' : 'Sem estoque' }}
+        </ion-badge>
+      </div>
+      <div class="product-info">
+        <p>
+          <ion-icon name="document-text-outline"></ion-icon>
+          {{ product.description }}
+        </p>
+        <p>
+          <ion-icon name="cash-outline"></ion-icon>
+          R$ {{ product.price | number:'1.2-2' }}
+        </p>
+        <p>
+          <ion-icon name="cube-outline"></ion-icon>
+          Estoque: {{ product.stock }}
+        </p>
+      </div>
     </ion-item>
-  </ion-list>
+  </div>
 </ion-content> 

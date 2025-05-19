@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController, IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule, ModalController, AlertController, ToastController } from '@ionic/angular';
 import { BarberService } from '../core/services/barber.service';
 import { Barber } from '../core/models/barber.model';
-import { firstValueFrom } from 'rxjs';
 import { BarberFormComponent } from './barber-form/barber-form.component';
 
 @Component({
@@ -11,46 +11,39 @@ import { BarberFormComponent } from './barber-form/barber-form.component';
   templateUrl: './barbers.component.html',
   styleUrls: ['./barbers.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule]
+  imports: [CommonModule, IonicModule, FormsModule]
 })
 export class BarbersComponent implements OnInit {
   barbers: Barber[] = [];
+  isLoading = false;
 
   constructor(
     private barberService: BarberService,
     private modalCtrl: ModalController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
   ) { }
 
   ngOnInit() {
     this.loadBarbers();
   }
 
-  async loadBarbers() {
-    try {
-      const barbers = await firstValueFrom(this.barberService.getBarbers());
+  loadBarbers() {
+    this.isLoading = true;
+    this.barberService.getBarbers().subscribe({
+      next: (barbers) => {
       this.barbers = barbers || [];
-    } catch (error) {
+        this.isLoading = false;
+      },
+      error: (error) => {
       console.error('Erro ao carregar barbeiros:', error);
       this.barbers = [];
-    }
-  }
-
-  async addBarber() {
-    const modal = await this.modalCtrl.create({
-      component: BarberFormComponent
-    });
-
-    modal.onDidDismiss().then((result) => {
-      if (result && result.data) {
-        this.loadBarbers();
+        this.isLoading = false;
       }
     });
-
-    return await modal.present();
   }
 
-  async editBarber(barber: Barber) {
+  async openBarberForm(barber?: Barber) {
     const modal = await this.modalCtrl.create({
       component: BarberFormComponent,
       componentProps: {
@@ -58,21 +51,20 @@ export class BarbersComponent implements OnInit {
       }
     });
 
-    modal.onDidDismiss().then((result) => {
-      if (result && result.data) {
+    modal.onDidDismiss().then(({ data }) => {
+      if (data) {
         this.loadBarbers();
+        this.showToast(
+          barber ? 'Barbeiro atualizado com sucesso!' : 'Barbeiro cadastrado com sucesso!',
+          'success'
+        );
       }
     });
 
-    return await modal.present();
+    await modal.present();
   }
 
   async deleteBarber(barber: Barber) {
-    if (!barber.id) {
-      console.error('Tentativa de excluir barbeiro sem ID');
-      return;
-    }
-
     const alert = await this.alertCtrl.create({
       header: 'Confirmar exclusão',
       message: `Deseja realmente excluir o barbeiro ${barber.name}?`,
@@ -83,18 +75,32 @@ export class BarbersComponent implements OnInit {
         },
         {
           text: 'Excluir',
-          handler: async () => {
-            try {
-              await firstValueFrom(this.barberService.deleteBarber(barber.id!));
-              await this.loadBarbers();
-            } catch (error) {
+          handler: () => {
+            this.barberService.deleteBarber(barber.id!).subscribe({
+              next: () => {
+                this.loadBarbers();
+                this.showToast('Barbeiro excluído com sucesso!', 'success');
+              },
+              error: (error) => {
               console.error('Erro ao excluir barbeiro:', error);
+                this.showToast('Erro ao excluir barbeiro', 'danger');
             }
+            });
           }
         }
       ]
     });
 
     await alert.present();
+  }
+
+  private async showToast(message: string, color: string = 'primary') {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000,
+      color,
+      position: 'bottom'
+    });
+    await toast.present();
   }
 } 

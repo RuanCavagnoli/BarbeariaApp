@@ -1,1 +1,157 @@
- 
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+
+  ion-spinner {
+    width: 48px;
+    height: 48px;
+  }
+
+  p {
+    margin-top: 16px;
+    color: var(--ion-color-medium);
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+
+  .empty-icon {
+    font-size: 64px;
+    color: var(--ion-color-medium);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--ion-color-dark);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 8px 0 24px;
+    color: var(--ion-color-medium);
+  }
+}
+
+.products-list {
+  padding: 16px;
+}
+
+.product-card {
+  --background: var(--ion-color-primary);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --inner-padding-end: 0;
+  --border-radius: 12px;
+  --border-width: 0;
+  --min-height: auto;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+
+  ion-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 12px;
+  }
+}
+
+.action-buttons {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  gap: 4px;
+
+  ion-button {
+    --padding-start: 4px;
+    --padding-end: 4px;
+    margin: 0;
+    height: 32px;
+    width: 32px;
+
+    ion-icon {
+      font-size: 18px;
+      color: white;
+    }
+  }
+}
+
+.product-info {
+  p {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+
+    ion-icon {
+      margin-right: 8px;
+      font-size: 18px;
+      color: white;
+    }
+  }
+}
+
+ion-item-options {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+ion-item-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 100%;
+  padding: 0 16px;
+  gap: 8px;
+
+  &.ion-color-primary {
+    background: var(--ion-color-primary-shade);
+  }
+
+  &.ion-color-danger {
+    background: var(--ion-color-danger);
+  }
+
+  ion-icon {
+    font-size: 24px;
+    color: white;
+  }
+
+  span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+  }
+} 

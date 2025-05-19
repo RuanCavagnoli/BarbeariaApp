@@ -8,20 +8,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
-  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'games',
-    loadChildren: () => import('./games/games.module').then( m => m.GamesPageModule)
-  },
-  {
-    path: 'studios',
-    loadChildren: () => import('./studios/studios.module').then( m => m.StudiosPageModule)
   },
   {
     path: 'products',
@@ -34,12 +22,20 @@ const routes: Routes = [
   {
     path: 'barbers',
     loadChildren: () => import('./barbers/barbers.module').then(m => m.BarbersModule)
+  },
+  {
+    path: 'clients',
+    loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule)
+  },
+  {
+    path: 'appointments',
+    loadChildren: () => import('./appointments/appointments.module').then(m => m.AppointmentsModule)
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })

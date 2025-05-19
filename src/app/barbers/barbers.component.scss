@@ -1,36 +1,186 @@
-.empty-state {
-  text-align: center;
-  padding: 2rem;
-  
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+
+  ion-spinner {
+    width: 48px;
+    height: 48px;
+  }
+
   p {
-    font-size: 1.1rem;
+    margin-top: 16px;
     color: var(--ion-color-medium);
-    margin-bottom: 1rem;
   }
 }
 
-ion-item {
-  --padding-start: 1rem;
-  --inner-padding-end: 1rem;
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
 
-  ion-label {
-    h2 {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
+  .empty-icon {
+    font-size: 64px;
+    color: var(--ion-color-medium);
+    margin-bottom: 16px;
+  }
 
-    p {
-      font-size: 0.9rem;
-      color: var(--ion-color-medium);
-      margin: 2px 0;
-    }
+  h2 {
+    margin: 0;
+    color: var(--ion-color-dark);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 8px 0 24px;
+    color: var(--ion-color-medium);
+  }
+}
+
+.barbers-list {
+  padding: 16px;
+}
+
+.barber-card {
+  --background: var(--ion-color-primary);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --inner-padding-end: 0;
+  --border-radius: 12px;
+  --border-width: 0;
+  --min-height: auto;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.barber-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
   }
 
   ion-badge {
-    font-size: 0.8rem;
-    padding: 4px 8px;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 12px;
   }
+}
+
+.action-buttons {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  gap: 4px;
+
+  ion-button {
+    --padding-start: 4px;
+    --padding-end: 4px;
+    margin: 0;
+    height: 32px;
+    width: 32px;
+
+    ion-icon {
+      font-size: 18px;
+      color: white;
+    }
+  }
+}
+
+.barber-info {
+  p {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+
+    ion-icon {
+      margin-right: 8px;
+      font-size: 18px;
+      color: white;
+    }
+  }
+}
+
+ion-item-options {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+ion-item-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 100%;
+  padding: 0 16px;
+  gap: 8px;
+
+  &.ion-color-primary {
+    background: var(--ion-color-primary-shade);
+  }
+
+  &.ion-color-danger {
+    background: var(--ion-color-danger);
+  }
+
+  ion-icon {
+    font-size: 24px;
+    color: white;
+  }
+
+  span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+ion-badge {
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+ion-searchbar {
+  --background: var(--ion-color-light);
+  --border-radius: 8px;
+  --box-shadow: none;
+  padding: 8px 16px;
+}
+
+ion-fab-button {
+  --background: var(--ion-color-primary);
+  --background-activated: var(--ion-color-primary-shade);
+  --background-hover: var(--ion-color-primary-tint);
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+ion-refresher {
+  --ion-color-spinner: var(--ion-color-primary);
+}
+
+ion-infinite-scroll {
+  margin-top: 16px;
 }
 
 ion-item-option {

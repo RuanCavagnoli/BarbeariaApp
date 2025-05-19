@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Clientes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openClientForm()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!clients.length" class="empty-state">
+    <ion-icon name="people-outline" class="empty-icon"></ion-icon>
+    <h2>Nenhum cliente cadastrado</h2>
+    <p>Adicione clientes para começar a gerenciar sua base</p>
+    <ion-button (click)="openClientForm()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Adicionar Cliente
+    </ion-button>
+  </div>
+
+  <div *ngIf="clients.length" class="clients-list">
+    <ion-item *ngFor="let client of clients" class="client-card">
+      <div class="action-buttons">
+        <ion-button fill="clear" size="small" (click)="openClientForm(client)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" size="small" color="danger" (click)="deleteClient(client)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="client-header">
+        <h2>{{ client.name }}</h2>
+      </div>
+      <div class="client-info">
+        <p>
+          <ion-icon name="call-outline"></ion-icon>
+          {{ client.phone }}
+        </p>
+        <p>
+          <ion-icon name="calendar-outline"></ion-icon>
+          {{ client.birthDate | date:'dd/MM/yyyy' }}
+        </p>
+      </div>
+    </ion-item>
+  </div>
+</ion-content> 

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditMode ? 'Editar' : 'Novo' }} Cliente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="form-container">
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+      <ion-note slot="error" *ngIf="getErrorMessage('name')">
+        {{ getErrorMessage('name') }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Telefone</ion-label>
+      <ion-input formControlName="phone" type="tel"></ion-input>
+      <ion-note slot="error" *ngIf="getErrorMessage('phone')">
+        {{ getErrorMessage('phone') }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">CPF</ion-label>
+      <ion-input formControlName="cpf" type="text"></ion-input>
+      <ion-note slot="error" *ngIf="getErrorMessage('cpf')">
+        {{ getErrorMessage('cpf') }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Gênero</ion-label>
+      <ion-select formControlName="gender" interface="popover">
+        <ion-select-option value="M">Masculino</ion-select-option>
+        <ion-select-option value="F">Feminino</ion-select-option>
+        <ion-select-option value="O">Outro</ion-select-option>
+      </ion-select>
+      <ion-note slot="error" *ngIf="getErrorMessage('gender')">
+        {{ getErrorMessage('gender') }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data de Nascimento</ion-label>
+      <ion-input formControlName="birthDate" type="date" [max]="maxDate" [min]="minDate"></ion-input>
+      <ion-note slot="error" *ngIf="getErrorMessage('birthDate')">
+        {{ getErrorMessage('birthDate') }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+      <ion-note slot="error" *ngIf="getErrorMessage('email')">
+        {{ getErrorMessage('email') }}
+      </ion-note>
+    </ion-item>
+
+    <div class="form-actions">
+      <ion-button type="submit" expand="block" [disabled]="!clientForm.valid">
+        {{ isEditMode ? 'Atualizar' : 'Criar' }} Cliente
+      </ion-button>
+      <ion-button type="button" expand="block" color="medium" (click)="cancel()">
+        Cancelar
+      </ion-button>
+    </div>
+  </form>
+</ion-content> 

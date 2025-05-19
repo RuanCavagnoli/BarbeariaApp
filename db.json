@@ -150,34 +150,22 @@
   ],
   "products": [
     {
-      "id": "2",
-      "name": "Mouse Gamer RGB",
-      "description": "Mouse gamer com iluminação RGB e 6 botões programáveis",
-      "price": 199.99,
-      "category": "Periféricos",
-      "stock": 50,
-      "image": "https://example.com/mouse-gamer.jpg"
-    },
-    {
-      "id": "3",
-      "name": "Headset Gamer",
-      "description": "Headset gamer com microfone e som surround 7.1",
-      "price": 299.99,
-      "category": "Periféricos",
-      "stock": 30,
-      "image": "https://example.com/headset-gamer.jpg"
+      "id": "6edd",
+      "name": "a",
+      "description": "a",
+      "price": 1,
+      "category": "a",
+      "stock": 1,
+      "image": ""
     }
   ],
   "services": [
     {
       "id": "1",
-      "name": "Corte Masculino",
-      "description": "Corte moderno ou clássico com acabamento perfeito",
-      "price": 45,
-      "duration": 30,
-      "category": "corte",
-      "available": true,
-      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+      "name": "Corte de Cabelo",
+      "description": "Corte tradicional",
+      "price": 30,
+      "duration": 30
     },
     {
       "id": "2",
@@ -200,14 +188,14 @@
       "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
     },
     {
-      "id": "4",
       "name": "Pigmentação Capilar",
       "description": "Disfarce de falhas e uniformização da cor",
       "price": 80,
       "duration": 60,
       "category": "pigmentacao",
-      "available": true,
-      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png",
+      "available": false,
+      "id": "4"
     },
     {
       "id": "5",
@@ -218,6 +206,59 @@
       "category": "tratamento",
       "available": true,
       "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+    },
+    {
+      "id": "a435",
+      "name": "a",
+      "description": "a",
+      "price": 12,
+      "duration": 12,
+      "category": "corte",
+      "image": "a",
+      "available": true
+    }
+  ],
+  "clients": [
+    {
+      "id": "1",
+      "name": "Maria Santos",
+      "phone": "11988888888",
+      "email": "maria@email.com"
+    }
+  ],
+  "barbers": [
+    {
+      "name": "João Silva",
+      "phone": "11999999999",
+      "specialties": [
+        "Corte",
+        "Barba"
+      ],
+      "experience": 5,
+      "active": true,
+      "id": "1"
+    }
+  ],
+  "appointments": [
+    {
+      "clientId": "1",
+      "barberId": "1",
+      "serviceId": "3",
+      "date": "2024-03-20",
+      "time": "10:00",
+      "notes": "Cliente preferência por corte mais curto",
+      "status": "scheduled",
+      "id": "1"
+    },
+    {
+      "id": "33bd",
+      "clientId": "1",
+      "barberId": "1",
+      "serviceId": "a435",
+      "date": "2025-05-21T19:25:00",
+      "time": "17:30",
+      "notes": "CU",
+      "status": "scheduled"
     }
   ]
 }

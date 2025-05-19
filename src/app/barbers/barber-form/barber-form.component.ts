@@ -1,69 +1,114 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { Barber } from '../../core/models/barber.model';
 import { BarberService } from '../../core/services/barber.service';
-import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-barber-form',
   templateUrl: './barber-form.component.html',
   styleUrls: ['./barber-form.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, IonicModule, ReactiveFormsModule]
 })
 export class BarberFormComponent implements OnInit {
   @Input() barber?: Barber;
-  form: FormGroup;
-  
-  specialtyOptions = [
+  barberForm!: FormGroup;
+  specialties = [
     'Corte Masculino',
     'Barba',
-    'Corte Feminino',
-    'Coloração',
-    'Tratamentos Capilares',
-    'Design de Sobrancelhas'
+    'Design de Sobrancelha',
+    'Pigmentação Capilar',
+    'Hidratação Capilar'
   ];
 
   constructor(
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private modalCtrl: ModalController,
     private barberService: BarberService
-  ) {
-    this.form = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
-      specialties: [[], [Validators.required, Validators.minLength(1)]],
-      experience: [0, [Validators.required, Validators.min(0)]],
-      active: [true]
+  ) { }
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    this.barberForm = this.fb.group({
+      name: [this.barber?.name || '', [Validators.required]],
+      phone: [this.barber?.phone || '', [
+        Validators.required,
+        Validators.minLength(11),
+        Validators.maxLength(11)
+      ]],
+      specialties: [this.barber?.specialties || [], [Validators.required, Validators.minLength(1)]],
+      experience: [this.barber?.experience || 0, [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(100)
+      ]],
+      active: [this.barber?.active ?? true]
     });
   }
 
-  ngOnInit() {
-    if (this.barber) {
-      this.form.patchValue(this.barber);
-    }
-  }
+  getErrorMessage(controlName: string): string {
+    const control = this.barberForm.get(controlName);
+    if (!control?.errors || !control.touched) return '';
 
-  async onSubmit() {
-    if (this.form.valid) {
-      const barberData = this.form.value;
-      
-      try {
-        if (this.barber?.id) {
-          await firstValueFrom(this.barberService.updateBarber(this.barber.id, barberData));
-        } else {
-          await firstValueFrom(this.barberService.createBarber(barberData));
-        }
-        this.modalCtrl.dismiss(true);
-      } catch (error) {
-        console.error('Erro ao salvar barbeiro:', error);
+    if (control.errors['required']) {
+      return 'Este campo é obrigatório';
+    }
+
+    if (control.errors['minlength'] || control.errors['maxlength']) {
+      if (controlName === 'phone') {
+        return 'O telefone deve ter 11 dígitos';
       }
     }
+
+    if (control.errors['min']) {
+      if (controlName === 'experience') {
+        return 'A experiência não pode ser negativa';
+      }
+    }
+
+    if (control.errors['max']) {
+      if (controlName === 'experience') {
+        return 'A experiência não pode ser maior que 100 anos';
+      }
+    }
+
+    if (control.errors['minlength']) {
+      if (controlName === 'specialties') {
+        return 'Selecione pelo menos uma especialidade';
+    }
   }
 
-  cancel() {
+    return '';
+  }
+
+  onSubmit() {
+    if (this.barberForm.valid) {
+      const barberData: Barber = {
+        ...this.barberForm.value,
+        id: this.barber?.id
+      };
+
+      const request = this.barber?.id
+        ? this.barberService.updateBarber(this.barber.id, barberData)
+        : this.barberService.createBarber(barberData);
+
+      request.subscribe({
+        next: () => {
+        this.modalCtrl.dismiss(true);
+        },
+        error: (error) => {
+        console.error('Erro ao salvar barbeiro:', error);
+      }
+      });
+    }
+  }
+
+  dismiss() {
     this.modalCtrl.dismiss();
   }
 } 

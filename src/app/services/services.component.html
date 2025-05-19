@@ -12,37 +12,53 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-list>
+<ion-content>
+  <div *ngIf="!services.length" class="empty-state">
+    <ion-icon name="cut-outline" class="empty-icon"></ion-icon>
+    <h2>Nenhum serviço cadastrado</h2>
+    <p>Adicione serviços para começar a gerenciar sua barbearia</p>
+    <ion-button (click)="addService()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Adicionar Serviço
+    </ion-button>
+  </div>
+
+  <div *ngIf="services.length" class="services-list">
     <ion-item-group *ngFor="let category of categories">
       <ion-item-divider sticky="true">
         <ion-label>{{ category.label }}</ion-label>
       </ion-item-divider>
 
-      <ion-item *ngFor="let service of services | filterByCategory:category.value">
-        <ion-thumbnail slot="start" *ngIf="service.image">
-          <ion-img [src]="service.image"></ion-img>
-        </ion-thumbnail>
-        <ion-label>
-          <h2>{{ service.name }}</h2>
-          <p>{{ service.description }}</p>
-          <p>
-            <ion-text color="primary">R$ {{ service.price | number:'1.2-2' }}</ion-text>
-            <ion-text color="medium"> • {{ formatDuration(service.duration) }}</ion-text>
-          </p>
-        </ion-label>
-        <ion-badge slot="end" [color]="service.available ? 'success' : 'medium'">
-          {{ service.available ? 'Disponível' : 'Indisponível' }}
-        </ion-badge>
-        <ion-buttons slot="end">
-          <ion-button (click)="editService(service)">
+      <ion-item *ngFor="let service of services | filterByCategory:category.value" class="service-card">
+        <div class="action-buttons">
+          <ion-button fill="clear" size="small" (click)="editService(service)">
             <ion-icon name="create-outline"></ion-icon>
           </ion-button>
-          <ion-button (click)="deleteService(service)" color="danger">
+          <ion-button fill="clear" size="small" color="danger" (click)="deleteService(service)">
             <ion-icon name="trash-outline"></ion-icon>
           </ion-button>
-        </ion-buttons>
+        </div>
+        <div class="service-header">
+          <h2>{{ service.name }}</h2>
+          <ion-badge [color]="service.available ? 'success' : 'medium'">
+            {{ service.available ? 'Disponível' : 'Indisponível' }}
+          </ion-badge>
+        </div>
+        <div class="service-info">
+          <p>
+            <ion-icon name="document-text-outline"></ion-icon>
+            {{ service.description }}
+          </p>
+          <p>
+            <ion-icon name="cash-outline"></ion-icon>
+            R$ {{ service.price | number:'1.2-2' }}
+          </p>
+          <p>
+            <ion-icon name="time-outline"></ion-icon>
+            {{ formatDuration(service.duration) }}
+          </p>
+        </div>
       </ion-item>
     </ion-item-group>
-  </ion-list>
+  </div>
 </ion-content> 

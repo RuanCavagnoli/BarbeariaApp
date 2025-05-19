@@ -36,7 +36,7 @@
               <ion-icon [name]="category.icon + '-outline'" slot="start"></ion-icon>
               <ion-label>
                 <h4>{{ service.name }}</h4>
-                <p>R$ {{ service.price | number:'1.2-2' }}</p>
+                <p>R$ {{ service.price | number:'1.2-2' }} • {{ formatDuration(service.duration) }}</p>
               </ion-label>
             </ion-item>
           }
@@ -78,7 +78,7 @@
   </ion-card>
 
   <!-- Botão de Agendamento -->
-  <ion-button expand="block" color="primary" class="ion-margin-top" (click)="navigateToServices()">
+  <ion-button expand="block" color="primary" class="ion-margin-top" (click)="navigateToAppointments()">
     <ion-icon name="calendar-outline" slot="start"></ion-icon>
     Agendar Horário
   </ion-button>

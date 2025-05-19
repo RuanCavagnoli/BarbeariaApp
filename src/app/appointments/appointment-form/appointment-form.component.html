@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditMode ? 'Editar' : 'Novo' }} Agendamento</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" class="form-container">
+    <ion-item>
+      <ion-label position="stacked">Cliente</ion-label>
+      <ion-select formControlName="clientId" interface="popover">
+        <ion-select-option *ngFor="let client of clients" [value]="client.id">
+          {{ client.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Barbeiro</ion-label>
+      <ion-select formControlName="barberId" interface="popover">
+        <ion-select-option *ngFor="let barber of barbers" [value]="barber.id">
+          {{ barber.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Serviço</ion-label>
+      <ion-select formControlName="serviceId" interface="popover">
+        <ion-select-option *ngFor="let service of services" [value]="service.id">
+          {{ service.name }} - R$ {{ service.price.toFixed(2) }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data</ion-label>
+      <ion-datetime
+        formControlName="date"
+        presentation="date"
+        [min]="minDate"
+        (ionChange)="onDateChange($event)"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Horário</ion-label>
+      <ion-select formControlName="time" interface="popover">
+        <ion-select-option *ngFor="let time of availableTimes" [value]="time">
+          {{ time }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Observações</ion-label>
+      <ion-textarea
+        formControlName="notes"
+        rows="3"
+        placeholder="Adicione observações sobre o agendamento..."
+      ></ion-textarea>
+    </ion-item>
+
+    <div class="form-actions">
+      <ion-button type="submit" expand="block" [disabled]="!appointmentForm.valid">
+        {{ isEditMode ? 'Atualizar' : 'Criar' }} Agendamento
+      </ion-button>
+      <ion-button type="button" expand="block" color="medium" (click)="cancel()">
+        Cancelar
+      </ion-button>
+    </div>
+  </form>
+</ion-content> 

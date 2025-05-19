@@ -1,15 +1,3 @@
-// Estilos para o componente services
-.services-container {
-  padding: 20px;
-  
-  .services-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-}
-
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -57,11 +45,11 @@
   }
 }
 
-.services-list {
+.clients-list {
   padding: 16px;
 }
 
-.service-card {
+.client-card {
   --background: var(--ion-color-primary);
   --padding-start: 16px;
   --padding-end: 16px;
@@ -76,7 +64,7 @@
   position: relative;
 }
 
-.service-header {
+.client-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,12 +75,6 @@
     font-size: 18px;
     font-weight: 600;
     color: white;
-  }
-
-  ion-badge {
-    font-size: 12px;
-    padding: 6px 12px;
-    border-radius: 12px;
   }
 }
 
@@ -117,7 +99,7 @@
   }
 }
 
-.service-info {
+.client-info {
   p {
     display: flex;
     align-items: center;
@@ -131,13 +113,6 @@
       color: white;
     }
   }
-}
-
-ion-item-sliding {
-  margin-bottom: 16px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 ion-item-options {
@@ -173,4 +148,18 @@ ion-item-option {
     font-size: 14px;
     font-weight: 500;
   }
+}
+
+ion-list {
+  padding: 0;
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+ion-searchbar {
+  padding: 0;
+  margin-bottom: 1rem;
 } 

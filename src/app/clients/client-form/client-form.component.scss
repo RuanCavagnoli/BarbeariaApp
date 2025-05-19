@@ -1,0 +1,26 @@
+ion-content {
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+}
+
+form {
+  ion-item {
+    --padding-start: 0;
+    margin-bottom: 1rem;
+  }
+
+  ion-note {
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  ion-datetime {
+    width: 100%;
+  }
+
+  .ion-padding {
+    margin-top: 2rem;
+  }
+} 

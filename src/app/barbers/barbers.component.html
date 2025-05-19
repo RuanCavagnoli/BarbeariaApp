@@ -5,53 +5,65 @@
     </ion-buttons>
     <ion-title>Barbeiros</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="addBarber()">
+      <ion-button (click)="openBarberForm()">
         <ion-icon name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  @if (barbers.length === 0) {
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="loadBarbers(); $event.target.complete()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  @if (isLoading) {
+    <div class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Carregando barbeiros...</p>
+    </div>
+  } @else if (barbers.length === 0) {
     <div class="empty-state">
-      <ion-text color="medium">
-        <p>Nenhum barbeiro cadastrado</p>
-      </ion-text>
-      <ion-button (click)="addBarber()" fill="clear">
+      <ion-icon name="cut-outline" class="empty-icon"></ion-icon>
+      <h2>Nenhum barbeiro cadastrado</h2>
+      <p>Adicione barbeiros para começar a gerenciar sua equipe</p>
+      <ion-button (click)="openBarberForm()">
+        <ion-icon name="add" slot="start"></ion-icon>
         Adicionar Barbeiro
       </ion-button>
     </div>
   } @else {
-    <ion-list>
-      @for (barber of barbers; track barber.id) {
-        <ion-item-sliding>
-          <ion-item>
-            <ion-label>
-              <h2>{{ barber.name }}</h2>
-              <p>{{ barber.phone }}</p>
-              <p>{{ barber.specialties.join(', ') }}</p>
-              <p>
-                <ion-text color="medium">
-                  {{ barber.experience }} anos de experiência
-                </ion-text>
-              </p>
-            </ion-label>
-            <ion-badge slot="end" [color]="barber.active ? 'success' : 'medium'">
-              {{ barber.active ? 'Ativo' : 'Inativo' }}
-            </ion-badge>
-          </ion-item>
-
-          <ion-item-options side="end">
-            <ion-item-option (click)="editBarber(barber)" color="primary">
-              <ion-icon slot="icon-only" name="create"></ion-icon>
-            </ion-item-option>
-            <ion-item-option (click)="deleteBarber(barber)" color="danger">
-              <ion-icon slot="icon-only" name="trash"></ion-icon>
-            </ion-item-option>
-          </ion-item-options>
-        </ion-item-sliding>
-      }
-    </ion-list>
+    <div class="barbers-list">
+      <ion-item *ngFor="let barber of barbers" class="barber-card">
+        <div class="action-buttons">
+          <ion-button fill="clear" size="small" (click)="openBarberForm(barber)">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" size="small" color="danger" (click)="deleteBarber(barber)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="barber-header">
+          <h2>{{ barber.name }}</h2>
+          <ion-badge [color]="barber.active ? 'success' : 'medium'">
+            {{ barber.active ? 'Ativo' : 'Inativo' }}
+          </ion-badge>
+        </div>
+        <div class="barber-info">
+          <p>
+            <ion-icon name="call-outline"></ion-icon>
+            {{ barber.phone }}
+          </p>
+          <p>
+            <ion-icon name="briefcase-outline"></ion-icon>
+            {{ barber.experience }} anos de experiência
+          </p>
+          <p>
+            <ion-icon name="star-outline"></ion-icon>
+            {{ barber.specialties.join(', ') }}
+          </p>
+        </div>
+      </ion-item>
+    </div>
   }
 </ion-content> 
