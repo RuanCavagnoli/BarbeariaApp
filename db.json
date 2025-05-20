@@ -1,162 +1,28 @@
 {
-  "games": [
-    {
-      "id": "2",
-      "title": "Tetris",
-      "category": "plataforma",
-      "image": "https://m.media-amazon.com/images/I/61M3rDwh4qL._h1_.png",
-      "launchDate": "1986-08-13T00:00:00.000Z",
-      "platforms": [],
-      "price": 1
-    },
-    {
-      "id": "3",
-      "title": "Tetris",
-      "category": "plataforma",
-      "image": null,
-      "launchDate": "1986-08-13T00:00:00.000Z",
-      "platforms": [],
-      "price": 1
-    },
-    {
-      "id": "4",
-      "title": "Tetris",
-      "category": "plataforma",
-      "image": null,
-      "launchDate": "1986-08-13T00:00:00.000Z",
-      "platforms": [],
-      "price": 1
-    },
-    {
-      "id": "5",
-      "title": "Tetris",
-      "category": "plataforma",
-      "image": null,
-      "launchDate": "1986-08-13T00:00:00.000Z",
-      "platforms": [],
-      "price": 1
-    },
-    {
-      "title": "Super Mario 2",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnWkg0kaGR2SE4gTyWdSvkc6LX7vw7Gmg6TEHohnQ3zimuPscntOs0uQ&s",
-      "launchDate": "0430-01-20T03:00:00.000Z",
-      "price": "200,00",
-      "category": "2D, Arcade",
-      "platforms": [
-        {
-          "id": "4c22",
-          "name": "Playstation 5",
-          "manufacture": "Sony"
-        },
-        {
-          "id": "059d",
-          "name": "Xbox",
-          "manufacture": "Microsoft"
-        },
-        {
-          "id": "a09e",
-          "name": "PC"
-        }
-      ],
-      "id": "204e"
-    },
-    {
-      "title": "Super Mario 3",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnWkg0kaGR2SE4gTyWdSvkc6LX7vw7Gmg6TEHohnQ3zimuPscntOs0uQ&s",
-      "launchDate": "0404-01-08T03:00:00.000Z",
-      "price": 99.99,
-      "category": "2D",
-      "platforms": [
-        {
-          "id": "99ed",
-          "name": "Super Nintendo",
-          "manufacture": "Nintendo"
-        },
-        {
-          "id": "a09e",
-          "name": "PC"
-        }
-      ],
-      "id": "9578"
-    },
-    {
-      "title": "Chess",
-      "image": "http://",
-      "launchDate": "2001-01-01T03:00:00.000Z",
-      "price": 111,
-      "category": "Tabuleiro",
-      "platforms": [
-        {
-          "id": "a09e",
-          "name": "PC"
-        }
-      ],
-      "id": "ad25"
-    },
-    {
-      "title": "Chess 2",
-      "image": "http://",
-      "launchDate": "2025-02-02T03:00:00.000Z",
-      "price": 2.97,
-      "category": "Tabuleiro",
-      "platforms": [
-        {
-          "id": "a09e",
-          "name": "PC"
-        }
-      ],
-      "id": "ef7c"
-    },
-    {
-      "title": "Chess 3",
-      "image": "http:///",
-      "launchDate": "2021-10-10T03:00:00.000Z",
-      "price": 20.12,
-      "category": "Tabuleiro",
-      "platforms": [
-        {
-          "id": "a09e",
-          "name": "PC"
-        }
-      ],
-      "id": "c754"
-    }
-  ],
-  "platforms": [
-    {
-      "id": "4c22",
-      "name": "Playstation 5",
-      "manufacture": "Sony"
-    },
-    {
-      "id": "059d",
-      "name": "Xbox",
-      "manufacture": "Microsoft"
-    },
-    {
-      "id": "99ea",
-      "name": "Nintendo Switch",
-      "manufacture": "Nintendo"
-    },
-    {
-      "id": "99ed",
-      "name": "Super Nintendo",
-      "manufacture": "Nintendo"
-    },
-    {
-      "id": "a09e",
-      "name": "PC"
-    }
-  ],
   "products": [
     {
-      "id": "6edd",
       "name": "a",
       "description": "a",
       "price": 1,
-      "category": "a",
       "stock": 1,
-      "image": ""
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png",
+      "id": "6edd"
+    },
+    {
+      "id": "f769",
+      "name": "b",
+      "description": "b",
+      "price": 1,
+      "stock": 1,
+      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+    },
+    {
+      "id": "b7b8",
+      "name": "Teste",
+      "description": "teste",
+      "price": 23,
+      "stock": 2,
+      "image": "https://cdn-icons-png.flaticon.com/128/10605/10605587.png"
     }
   ],
   "services": [
@@ -194,7 +60,7 @@
       "duration": 60,
       "category": "pigmentacao",
       "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png",
-      "available": false,
+      "available": true,
       "id": "4"
     },
     {
@@ -215,6 +81,15 @@
       "duration": 12,
       "category": "corte",
       "image": "a",
+      "available": true
+    },
+    {
+      "id": "7013",
+      "name": "Seila",
+      "description": "seila ",
+      "price": 24,
+      "duration": 45,
+      "category": "tratamento",
       "available": true
     }
   ],
@@ -251,14 +126,14 @@
       "id": "1"
     },
     {
-      "id": "33bd",
       "clientId": "1",
       "barberId": "1",
       "serviceId": "a435",
       "date": "2025-05-21T19:25:00",
       "time": "17:30",
-      "notes": "CU",
-      "status": "scheduled"
+      "notes": "teste",
+      "status": "scheduled",
+      "id": "33bd"
     }
   ]
 }

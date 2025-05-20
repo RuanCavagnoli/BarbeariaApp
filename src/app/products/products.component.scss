@@ -163,4 +163,12 @@ ion-item-option {
     font-size: 14px;
     font-weight: 500;
   }
+}
+
+.product-image {
+  width: 20%;
+  height: fit-content;
+  max-height: 150px;
+  object-fit: initial;
+  margin-bottom: 10px;
 } 

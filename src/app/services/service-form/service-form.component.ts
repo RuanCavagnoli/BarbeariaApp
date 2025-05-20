@@ -37,7 +37,6 @@ export class ServiceFormComponent implements OnInit {
       price: ['', [Validators.required, Validators.min(0)]],
       duration: ['', [Validators.required, Validators.min(1)]],
       category: ['', [Validators.required]],
-      image: [''],
       available: [true]
     });
   }
