@@ -33,9 +33,7 @@ export class ClientFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.isEditMode && this.clientId) {
-      this.loadClientData();
-    }
+    this.initForm();
   }
 
   loadClientData() {
@@ -55,7 +53,7 @@ export class ClientFormComponent implements OnInit {
 
   initForm() {
     this.clientForm = this.fb.group({
-      name: [this.client?.name || '', [Validators.required]],
+      name: [this.client?.name || '', [Validators.required, Validators.minLength(3)]],
       phone: [this.client?.phone || '', [
         Validators.required,
         Validators.pattern(/^\d{11}$/),
@@ -128,12 +126,13 @@ export class ClientFormComponent implements OnInit {
   async onSubmit() {
     if (this.clientForm.valid) {
       const clientData: Client = {
-        ...this.clientForm.value
+        ...this.clientForm.value,
+        id: this.client?.id // importante para edição!
       };
 
       try {
-        if (this.isEditMode && this.clientId) {
-          await this.clientService.updateClient(this.clientId, clientData).toPromise();
+        if (this.client?.id) {
+          await this.clientService.updateClient(this.client.id, clientData).toPromise();
         } else {
           await this.clientService.createClient(clientData).toPromise();
         }
@@ -147,4 +146,4 @@ export class ClientFormComponent implements OnInit {
   cancel() {
     this.modalCtrl.dismiss();
   }
-} 
+}

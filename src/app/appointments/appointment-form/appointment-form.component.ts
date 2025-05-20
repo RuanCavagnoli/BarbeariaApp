@@ -25,7 +25,7 @@ import { Service } from '../../core/models/service.model';
 export class AppointmentFormComponent implements OnInit {
   @Input() appointment?: Appointment;
   @Input() isEditMode = false;
-  
+
   appointmentForm: FormGroup;
   appointmentId: string | null = null;
   barbers: Barber[] = [];
@@ -128,8 +128,6 @@ export class AppointmentFormComponent implements OnInit {
 
   onDateChange(event: any) {
     this.selectedDate = event.detail.value;
-    // Aqui você pode adicionar lógica para verificar horários disponíveis
-    // baseado na data selecionada
   }
 
   async onSubmit() {
@@ -158,4 +156,4 @@ export class AppointmentFormComponent implements OnInit {
   cancel() {
     this.modalCtrl.dismiss();
   }
-} 
+}

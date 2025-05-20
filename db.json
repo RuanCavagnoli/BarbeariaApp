@@ -4,7 +4,7 @@
       "name": "a",
       "description": "a",
       "price": 1,
-      "stock": 1,
+      "stock": 5,
       "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png",
       "id": "6edd"
     },
@@ -95,10 +95,19 @@
   ],
   "clients": [
     {
-      "id": "1",
       "name": "Maria Santos",
       "phone": "11988888888",
-      "email": "maria@email.com"
+      "cpf": "11111111111",
+      "gender": "F",
+      "birthDate": "2025-05-20",
+      "email": "maria@email.com",
+      "id": "1"
+    },
+    {
+      "id": "5789",
+      "name": "Ruan",
+      "phone": "1111111111",
+      "email": "ruan@hotmail.com"
     }
   ],
   "barbers": [
