@@ -1,6 +1,8 @@
 ion-content {
-  --padding-top: 1rem;
-  --padding-bottom: 1rem;
+  --padding-top: 2rem;
+  --padding-bottom: 2rem;
+  margin-left: 20px;
+
 }
 
 form {
@@ -19,8 +21,13 @@ form {
   ion-datetime {
     width: 100%;
   }
+  ion-label{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    --padding: 16px;
+  }
 
   .ion-padding {
     margin-top: 2rem;
   }
-} 
+}

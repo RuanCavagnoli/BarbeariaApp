@@ -1,28 +1,20 @@
 {
   "products": [
     {
-      "name": "a",
-      "description": "a",
-      "price": 1,
-      "stock": 5,
+      "name": "Shampoo para barba",
+      "description": "Shampo",
+      "price": 35,
+      "stock": 0,
       "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png",
-      "id": "6edd"
+      "id": "f769"
     },
     {
-      "id": "f769",
-      "name": "b",
-      "description": "b",
-      "price": 1,
-      "stock": 1,
-      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
-    },
-    {
-      "id": "b7b8",
-      "name": "Teste",
+      "name": "Pomada para cabelo",
       "description": "teste",
       "price": 23,
       "stock": 2,
-      "image": "https://cdn-icons-png.flaticon.com/128/10605/10605587.png"
+      "image": "https://cdn-icons-png.flaticon.com/128/10605/10605587.png",
+      "id": "b7b8"
     }
   ],
   "services": [
@@ -34,14 +26,13 @@
       "duration": 30
     },
     {
-      "id": "2",
-      "name": "Barba Completa",
+      "name": "Barba incompleta",
       "description": "Aparação, modelagem e hidratação da barba",
       "price": 35,
       "duration": 30,
       "category": "barba",
-      "available": true,
-      "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
+      "available": false,
+      "id": "2"
     },
     {
       "name": "Design de Sobrancelha",
@@ -74,16 +65,6 @@
       "image": "https://cdn-icons-png.flaticon.com/512/2416/2416924.png"
     },
     {
-      "id": "a435",
-      "name": "a",
-      "description": "a",
-      "price": 12,
-      "duration": 12,
-      "category": "corte",
-      "image": "a",
-      "available": true
-    },
-    {
       "id": "7013",
       "name": "Seila",
       "description": "seila ",
@@ -102,12 +83,6 @@
       "birthDate": "2025-05-20",
       "email": "maria@email.com",
       "id": "1"
-    },
-    {
-      "id": "5789",
-      "name": "Ruan",
-      "phone": "1111111111",
-      "email": "ruan@hotmail.com"
     }
   ],
   "barbers": [
@@ -129,7 +104,7 @@
       "barberId": "1",
       "serviceId": "3",
       "date": "2024-03-20",
-      "time": "10:00",
+      "time": "10:30",
       "notes": "Cliente preferência por corte mais curto",
       "status": "scheduled",
       "id": "1"
@@ -137,12 +112,22 @@
     {
       "clientId": "1",
       "barberId": "1",
-      "serviceId": "a435",
+      "serviceId": "1",
       "date": "2025-05-21T19:25:00",
       "time": "17:30",
       "notes": "teste",
       "status": "scheduled",
       "id": "33bd"
+    },
+    {
+      "id": "c580",
+      "clientId": "1",
+      "barberId": "1",
+      "serviceId": "5",
+      "date": "2025-05-20T22:35:00",
+      "time": "11:00",
+      "notes": "Esse é meio chato",
+      "status": "scheduled"
     }
   ]
 }
